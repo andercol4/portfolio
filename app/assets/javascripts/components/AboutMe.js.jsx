@@ -22,16 +22,15 @@ class AboutMe extends React.Component {
   hobbyDropDown(){
       if(this.state.hobbyToggle){
         let hobbies = this.state.hobbies.map( hobby => {
-          debugger
-          return(<Hobby title={hobby.title} description={hobby.description}/>)
+          return(<Hobby key={`hobby-${hobby.id}`} {...hobby}/>)
         })
         return(hobbies)
       }
     }
   render(){
     return(
-      <div className='col s6 center-align'>
-        <div onClick={this.toggleHobbies} className='blue lighten-3'>
+      <div className='col s6'>
+        <div onClick={this.toggleHobbies} className='blue center-align'>
           Hobbies
         </div>
           {this.hobbyDropDown()}
