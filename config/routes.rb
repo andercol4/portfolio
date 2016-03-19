@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :interests
-resources :projects
+    resources :educations
+  resources :interests
+  resources :projects
+  resources :works
 
     root to: "interests#index"
   end
