@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class HobbyDashboard < Administrate::BaseDashboard
+class ProjectDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,8 +9,12 @@ class HobbyDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    title: Field::String,
+    name: Field::String,
+    url: Field::Text,
+    git_repo: Field::Text,
     description: Field::Text,
+    start_date: Field::String,
+    end_date: Field::String,
     rank: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -23,17 +27,21 @@ class HobbyDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :title,
-    :description,
-    :rank,
+    :name,
+    :url,
+    :git_repo,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :title,
+    :name,
+    :url,
+    :git_repo,
     :description,
+    :start_date,
+    :end_date,
     :rank,
     :created_at,
     :updated_at,
@@ -43,15 +51,19 @@ class HobbyDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :title,
+    :name,
+    :url,
+    :git_repo,
     :description,
+    :start_date,
+    :end_date,
     :rank,
   ]
 
-  # Overwrite this method to customize how hobbies are displayed
+  # Overwrite this method to customize how projects are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(hobby)
-  #   "Hobby ##{hobby.id}"
+  # def display_resource(project)
+  #   "Project ##{project.id}"
   # end
 end

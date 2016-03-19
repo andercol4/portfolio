@@ -1,16 +1,54 @@
-.row
-  .col.s6
-    %h4 Colin Anderson
-    %span 6427 Ralph H Circle
-    %br
-    %span Herriman, UT 84096
-  .col.s6.right-align
-    %a.link{href: 'mailto:andercol.4@gmail.com'}
-      andercol.4@gmail.com
-    %br
-    %a.link{href: 'https://linkedin.com/in/andercol4'}
-      Linkedin: andercol4
-    %br
-    %a.link{href: 'https://github.com/andercol4'}
-      Github: andercol4
-    %br
+.container
+  .row.valign-wrapper
+    .col.s6
+      %h4 Colin Anderson
+      %span 6427 Ralph H Circle
+      %br
+      %span Herriman, UT 84096
+    .col.s3.offset-s3.right-align.card.contact-me.blue.lighten-1.grey-text
+      %span.card-title Contact Info
+      %a.link{href: 'mailto:andercol.4@gmail.com'}
+        andercol.4@gmail.com
+      %br
+      %a.link{href: 'https://linkedin.com/in/andercol4'}
+        Linkedin: andercol4
+      %br
+      %a.link{href: 'https://github.com/andercol4'}
+        Github: andercol4
+      %br
+      %span Phone: (801)231-3321
+  .row
+    .col.s3
+      .card
+        %h5
+          Interests
+        %ul
+          - @interests.each do |interest|
+            %li
+              .chip
+                = interest.name
+    .col.m9
+      .card
+        .row
+          .col.s11.offset-s1
+            %h3.blue-text Projects
+          - @projects.each do |project|
+            .col.s10.offset-s1
+              .row.valign-wrapper
+                .col.s4
+                  %h5.left-align.blue-text
+                    = project.name
+                .col.s8
+                  %p.valign.right-align.blue-text
+                    = "#{project.start_date}-#{project.end_date}"
+              .row
+                .col.s12.card-content
+                  %p
+                    = project.description
+              .row
+                .col.s6
+                  %a{href: project.url, target: 'blank_'}
+                    Site
+                .col.s6.right-align
+                  %a{href: project.git_repo, target: 'blank_'}
+                    Git Repo
