@@ -18,20 +18,20 @@
       %br
       %span Phone: (801)231-3321
   .row
-    .col.s3
+    .col.s12
       .card
-        %h5
+        %h5.s12
           Interests
         %ul
           - @interests.each do |interest|
             %li
               .chip
                 = interest.name
-    .col.m9
+    .col.m12
       .card
         .row
           .col.s11.offset-s1
-            %h3.blue-text Projects
+            %h3.blue-text Experience
           - @projects.each do |project|
             .col.s10.offset-s1
               .row.valign-wrapper
@@ -42,13 +42,34 @@
                   %p.valign.right-align.blue-text
                     = "#{project.start_date}-#{project.end_date}"
               .row
-                .col.s12.card-content
-                  %p
+                .col.s12
+                  %span.description
                     = project.description
               .row
                 .col.s6
                   %a{href: project.url, target: 'blank_'}
-                    Site
+                    = project.url
                 .col.s6.right-align
                   %a{href: project.git_repo, target: 'blank_'}
-                    Git Repo
+                    = project.git_repo
+          .col.s10.offset-s1
+            - @education.each do |education|
+              .col.s6
+                %h5.left-align.blue-text
+                  = education.name
+              .col.s6
+                %p.right-align.blue-text
+                  = "#{education.start_date}-#{education.end_date}"
+              .col.s12
+                %span.description
+                  = education.description
+            - @work.each do |work|
+              .col.s8
+                %h5.left-align.blue-text
+                  = work.title
+              .col.s4
+                %p.right-align.blue-text
+                  = "#{work.start_date}-#{work.end_date}"
+              .col.s12
+              %span.description
+                = work.description
